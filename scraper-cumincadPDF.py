@@ -50,7 +50,7 @@ def main(total=16336):
         # access series site, e.g. ACADIA
         series_site = "http://papers.cumincad.org/cgi-bin/works/BrowseTree?field=series&separator=:&recurse=0&order=AZ&value={}&first={}".format(series, page_number)
         # the first page of archive
-        print('Page number: ' + page_number)
+        print('Page number: ' + str(page_number))
         main_request = requests.get(series_site)
         main_soup = BeautifulSoup(main_request.text, 'html.parser')
         # get the papers in the page
@@ -63,7 +63,7 @@ def main(total=16336):
             count += 1
             end = time.time()
             print("{}/16336        {} papers,      {} sec".format(count, countPapers(folder), end - start))
-            time.sleep(random.randint(0, 3))
+            time.sleep(random.randint(1, 3))
         page_number += 20
 
 
