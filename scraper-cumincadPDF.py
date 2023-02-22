@@ -11,7 +11,7 @@ import time
 import random
 # ----------------------------------------------------------------------------------------------------------------------
 
-series = "ACADIA" 
+series = "eCAADe" 
 
 folder = series + "/"
 
@@ -27,22 +27,28 @@ def getPaperUrls(main_soup):
         if parent.get('href') != None:          #if tag <a> has a valid url
             paperUrl = parent.get('href')
             paperName = paperUrl.split("/")[-1]
-            pdfUrl = pdfBaseUrl + paperName + '.pdf'
+            pdfUrl = pdfBaseUrl + paperName
             linksList.append(pdfUrl)         #then add tag <a> to the list
     return linksList
 
 def downloadPapers(url):
     '''download papers'''
-    response = requests.get(url)
-    fileName = url.split("/")[-1]
-    with open(folder + fileName, 'wb') as f:
-        f.write(response.content)
+    response = requests.get(url + '.pdf')
+    if response.status_code == 404:
+        response = requests.get(url + '.content.pdf')
+        fileName = url.split("/")[-1]
+        with open(folder + fileName + '.content.pdf', 'wb') as f:
+            f.write(response.content)
+    else:
+        fileName = url.split("/")[-1]
+        with open(folder + fileName + '.pdf', 'wb') as f:
+            f.write(response.content)
 
 def countPapers(folder):
     '''count the number of currently scraped paper'''
     return len(os.listdir(folder))
 
-def main(total=16336):
+def main(total=3383):
     '''wrapper function of scraper'''
     page_number = 0
     count = 0
@@ -62,7 +68,7 @@ def main(total=16336):
             downloadPapers(url)
             count += 1
             end = time.time()
-            print("{}/16336        {} papers,      {} sec".format(count, countPapers(folder), end - start))
+            print("{}/3383        {} papers,      {} sec".format(count, countPapers(folder), end - start))
             time.sleep(random.randint(1, 3))
         page_number += 20
 
