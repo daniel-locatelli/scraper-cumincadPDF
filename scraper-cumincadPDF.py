@@ -12,63 +12,23 @@ import re
 import time
 # ----------------------------------------------------------------------------------------------------------------------
 
-folder = "raw_data/"
+Source = "ACADIA" 
 
-#please change the search words
-search_words = ["deep learning", "deep-learning", "deep-learning-based",
-                "deep neural network", "deep neural networks",
-                "artificial neurpip freeze > requirements.txtal network", "artificial neural networks",
-                "neural network", "neural networks",
-                "gan", "generative adversarial network", "generative adversarial networks",
-                "vgg", "cnn",
-                "imagenet", "image-net", "image net",
-                "unet", "u-net", "u net"]
+folder = Source + "/" 
 
-
-def searchWord(w):
-    '''check the word w is in the publication information'''
-    return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
-
-def searchContainment(words, conents):
-    '''check whether the contents have words or not'''
-    for word in words:
-        if searchWord(word)(conents) != None:
-            print(word)
-            return True
-    return False
-
-def getPapers(main_soup):
+def getPaperLinks(main_soup):
     '''find all papers link and return the list of papers'''
     form = main_soup.find('form', attrs={'name': 'main'})
     children = form.find_all('b')       #gets tag <b>
-    papers = []
+    paperLinks = []
     for child in children:              #gets the parent of tag <b>, which is tag <a>. This removes other unecessary <a> tags
         parent = child.parent
         if parent.get('href') != None:  #if tag <a> has a valid url
-            papers.append(parent)       #then add tag <a> to the list
-    return papers
+            paperNames.append(parent)       #then add tag <a> to the list
+    return papersNames
 
-def getPaperInfo(paper):
-    '''extract information of the input paper, input is id of a paper'''
-    data = []
-    paper_site = paper.get('href') # generate paper url
-
-    #scraping
-    paper_request = requests.get(paper_site)
-    main_soup = BeautifulSoup(paper_request.text, 'html.parser')
-    paper_table_1 = main_soup.find_all('tr', attrs={'class': 'DATA'})
-    score = 0
-
-    for row in paper_table_1:
-        cols = row.find_all('td')
-        item = [ele.text.strip() for ele in cols]
-        filter = searchContainment(search_words, item[0].lower())  # check a paper is relevant
-        score += filter  # score is how many words in contents are related to the keywords
-        data.append(item)
-    if score > 0:
-        df = pd.DataFrame(data)
-        filename = folder + paper_site.split("/")[-1] + ".csv"  # make a new folder named as paper id
-        df.to_csv(filename, sep=",", encoding='utf-8-sig')   # save as csv file
+def downloadPapers(paperLinks):
+    '''download papers''' 
 
 def countPapers(folder):
     '''count the number of currently scraped paper'''
@@ -79,8 +39,8 @@ def main(total=16336):
     page_number = 0
     count = 0
     while page_number <= total:
-        # access the main site, e.g. CumInCAD
-        main_site = "http://papers.cumincad.org/cgi-bin/works/Search?&first={}".format(page_number)
+        # access series site, e.g. ACADIA
+        series_site = "".format(series, page number)
         # the first page of archive
         print(page_number)
         main_request = requests.get(main_site)
