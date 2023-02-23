@@ -9,48 +9,79 @@ from bs4 import BeautifulSoup
 import os
 import time
 import random
+import pdfkit
 # ----------------------------------------------------------------------------------------------------------------------
 
 series = "eCAADe" 
 
 folder = series + "/"
 
-pdfBaseUrl = 'http://papers.cumincad.org/data/works/att/'
+pdfBaseUrl = 'http://papers.cumincad.org'
+
+#this also did't work. The filename changes
+#it has to get the pdf icon path
+#if there is no pdf icon, then enter the paper link and download from there
 
 def getPaperUrls(main_soup):
     '''find all papers link and return the list of papers'''
     form = main_soup.find('form', attrs={'name': 'main'})
-    children = form.find_all('b')               #gets tag <b>
-    linksList = []
-    for child in children:                      #gets the parent of tag <b>, which is tag <a>. This removes other unecessary <a> tags
-        parent = child.parent
-        if parent.get('href') != None:          #if tag <a> has a valid url
-            paperUrl = parent.get('href')
-            paperName = paperUrl.split("/")[-1]
-            pdfUrl = pdfBaseUrl + paperName
-            linksList.append(pdfUrl)         #then add tag <a> to the list
-    return linksList
+    tables = form.find_all('tr')
+    paperUrls = []
+    for table in tables:
+        if table.has_attr('bgcolor'):
+            # check if there is a pdf icon
+            pdfImg = table.find(attrs = {'src':'/img/pdf.png'})
+            
+            # if there is a pdf icon, then get the Url
+            if pdfImg != None:
+                pdfHref = pdfImg.parent.get('href')
+                workingUrl = pdfBaseUrl + pdfHref
+
+            # if there isn't, then enter paper page
+            else:
+                paperPageUrl = table.a.get('href')
+                response = requests.get(paperPageUrl)
+                paperSoup = BeautifulSoup(response.text, 'html.parser')
+
+                # and look for another pdf icon
+                pdfIconUrl = paperSoup.find(attrs = {'src':'/woda/icons/flat-noborder/pdf.gif'})
+                pdfHref = pdfIconUrl.parent.get('href')
+                pdfUrl = pdfBaseUrl + pdfHref
+                responsePdf = requests.get(pdfUrl)
+
+                # if there is a pdf icon
+                if pdfUrl != None:
+                    # check if the link actually works
+                    if responsePdf.status_code != 404:
+                        # if there is an icon and the pdf file is available, then pdfUrl is added to paperUrls list
+                        workingUrl = pdfUrl
+                    else:
+                        # if there is an icon but the pdf file is not available, then add paper page url to paperUrls list
+                        workingUrl = paperPageUrl
+                else:
+                    # if there is no pdf icon, then add paper page url to paperUrls list
+                    workingUrl = paperPageUrl
+
+            paperUrls.append(workingUrl)
+    return paperUrls
 
 def downloadPapers(url):
     '''download papers'''
-    response = requests.get(url + '.pdf')
-    if response.status_code == 404:
-        response = requests.get(url + '.content.pdf')
+    if url.split(".")[-1] == 'pdf':
+        response = requests.get(url)
         fileName = url.split("/")[-1]
-        with open(folder + fileName + '.content.pdf', 'wb') as f:
+        with open(folder + fileName, 'wb') as f:
             f.write(response.content)
     else:
-        fileName = url.split("/")[-1]
-        with open(folder + fileName + '.pdf', 'wb') as f:
-            f.write(response.content)
+        print ("I am here for the next step")
 
 def countPapers(folder):
     '''count the number of currently scraped paper'''
     return len(os.listdir(folder))
 
-def main(total=3383):
+def main(total=599):
     '''wrapper function of scraper'''
-    page_number = 0
+    page_number = 580
     count = 0
     while page_number <= total:
         # access series site, e.g. ACADIA
@@ -61,7 +92,7 @@ def main(total=3383):
         main_soup = BeautifulSoup(main_request.text, 'html.parser')
         # get the papers in the page
         papersUrl = getPaperUrls(main_soup)
-        # extract paper info
+        # download paper
         for url in papersUrl:
             start = time.time()
             print (url)
