@@ -1,5 +1,6 @@
-<h1># scraper-cumincadPDF<br />
-Batch download PDFs from CuminCAD for each series e.g eCAADe</h1>
+<h1># scraper-cumincadPDF</h1>
+
+<h3>Batch download PDFs from CuminCAD for each series e.g eCAADe</h3>
 
 <p>This tool was developed for studying purposes. It is not intended to be used to flood cumincad website.<br />
 Reducing or eliminating the waiting time in the code could potentially cause flooding requests and damage the website&#39;s performance!</p>
