@@ -28,8 +28,13 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 
 <p>You are good to go.</p>
 
-<h2>In case the code stops and you want to continue from the last downloaded paper</h2>
-
-<p>Go to the series folder your created earlier and see how many files are there.<br />
-Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
+		<h3>In case the code stops and you want to continue from the last downloaded paper</h3>
+		<p>Go to the series folder your created earlier and see how many files are there.<br />
+		Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
 &nbsp;</p>
+
+		<h3>In case the pdf is not found</h3>
+		<ul>
+		<p>Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available. </p>
+		</ul>
+		
