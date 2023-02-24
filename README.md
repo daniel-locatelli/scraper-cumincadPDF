@@ -34,7 +34,5 @@ Get this number and add it to the <strong>page_number</strong> on line 114 of th
 &nbsp;</p>
 
 <h3>In case the code doesn't find a pdf for the paper</h3>
-<ul>
-Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available.
-</ul>
+<p>Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available.</p>
 		
