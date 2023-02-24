@@ -21,8 +21,8 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\<strong>eCAADe</strong></li>
 	</ul>
 	</li>
-	<li>Go to cumincad.org and check on the last page o the series what is the total number of papers.</li>
-	<li>Then add this number in place of the number on line 112 of the code.</li>
+	<li>Go to cumincad.org and check on the last page of the series what is its total number of papers.</li>
+		<li>&nbsp; Then add this number in place of the number on line 112 of the code.</li>
 </ul>
 
 <p>You are good to go.</p>
