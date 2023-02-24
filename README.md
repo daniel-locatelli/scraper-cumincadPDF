@@ -8,7 +8,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 <h2>To use it, you will need to install the following</h2>
 
 <ul>
-	<li>Beautifulsoup (type on your Command Prompt &#39;pip install Beautifulsoup&#39;)</li>
+	<li>BeautifulSoup (type on your Command Prompt &#39;pip install Beautifulsoup&#39;)</li>
 </ul>
 
 <h2>To execute the code</h2>
