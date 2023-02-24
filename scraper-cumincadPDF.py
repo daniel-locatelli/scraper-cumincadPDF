@@ -10,11 +10,18 @@ import time
 import random
 # ----------------------------------------------------------------------------------------------------------------------
 
+''' Series available:
+ACADIA, ASCAAD, AVOCAAD, Architectural%20Intelligence, CAAD%20Futures, CAADRIA, CADline, DDSS, EAEA, SIGRADI, SIGraDi
+book, cdrf, eCAADe, eCAADeSIGraDi, journal, journal%20paper, other, plCAD, report, thesis%3aMSc, thesis%3aPhD
+
+You can see all the series here:
+http://papers.cumincad.org/cgi-bin/works/BrowseTree?field=series&order=AZ
+'''
+
 series = "eCAADe" 
-
 folder = series + "/"
-
 baseUrl = 'http://papers.cumincad.org'
+
 
 #this also did't work. The filename changes
 #it has to get the pdf icon path
