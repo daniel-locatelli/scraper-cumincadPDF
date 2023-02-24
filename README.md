@@ -3,7 +3,7 @@
 <p>Batch download PDFs from CuminCAD for each series e.g eCAADe</p>
 
 <p>This tool was developed for studying purposes. It is not intended to be used to flood cumincad website.<br />
-Reducing or eliminating the waiting time in the code could potentially cause flooding requests and damage the website&#39;s performance!</p>
+By using it you agree that you are aware that reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!</p>
 
 <h2>To use it, you will need to install the following:</h2>
 
