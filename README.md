@@ -5,7 +5,7 @@
 <p>This tool was developed for studying purposes. It is not intended to flood cumincad website.<br />
 By using it you agree you are aware that by reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!</p>
 
-<h2>Prerequisite/h2>
+<h2>Prerequisite</h2>
 
 <ul>
 	<li>BeautifulSoup (type on your Command Prompt &#39;pip install Beautifulsoup&#39;)</li>
