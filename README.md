@@ -33,8 +33,8 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
 &nbsp;</p>
 
-<h3>In case the pdf is not found</h3>
+<h3>In case the code doesn't find a pdf for the paper</h3>
 <ul>
-<p>Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available. </p>
+Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available.
 </ul>
 		
