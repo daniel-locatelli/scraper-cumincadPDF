@@ -1,6 +1,6 @@
 <h1># scraper-cumincadPDF</h1>
 
-<h3>Batch download PDFs from CuminCAD for each series e.g eCAADe</h3>
+<p>Batch download PDFs from CuminCAD for each series e.g eCAADe</p>
 
 <p>This tool was developed for studying purposes. It is not intended to be used to flood cumincad website.<br />
 Reducing or eliminating the waiting time in the code could potentially cause flooding requests and damage the website&#39;s performance!</p>
@@ -14,11 +14,11 @@ Reducing or eliminating the waiting time in the code could potentially cause flo
 <h2>To execute the code:</h2>
 
 <ul>
-	<li>Type the series you want to scrape e.g eCAADe on line 21 of the code.</li>
+	<li>Type the series you want to scrape e.g <strong>eCAADe</strong>&nbsp;on line 21 of the code.</li>
 	<li>You also have to create a folder for your series in the same place the python code is saved.
 	<ul>
 		<li>&nbsp; For example, you saved the python file at C:\Users\yourName\Desktop\scraper-cumincadPDF</li>
-		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\eCAADe</li>
+		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\<strong>eCAADe</strong></li>
 	</ul>
 	</li>
 	<li>Go to cumincad.org and check on the last page o the series what is the total number of papers.</li>
@@ -30,5 +30,5 @@ Reducing or eliminating the waiting time in the code could potentially cause flo
 <h2>In case the code stops at some point and you want to continue from the last downloaded paper:</h2>
 
 <p>Go to the series folder your created earlier and see how many files are there.<br />
-Get this number and add it to the page_number on line 114 of the code.<br />
+Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
 &nbsp;</p>
