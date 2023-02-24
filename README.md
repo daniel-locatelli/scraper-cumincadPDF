@@ -5,13 +5,13 @@
 <p>This tool was developed for studying purposes. It is not intended to be used to flood cumincad website.<br />
 By using it you agree that you are aware that reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!</p>
 
-<h2>To use it, you will need to install the following:</h2>
+<h2>To use it, you will need to install the following</h2>
 
 <ul>
 	<li>Beautifulsoup (type on your Command Prompt &#39;pip install Beautifulsoup&#39;)</li>
 </ul>
 
-<h2>To execute the code:</h2>
+<h2>To execute the code</h2>
 
 <ul>
 	<li>Type the series you want to scrape e.g <strong>eCAADe</strong>&nbsp;on line 21 of the code.</li>
@@ -27,7 +27,7 @@ By using it you agree that you are aware that reducing or eliminating the waitin
 
 <p>You are good to go.</p>
 
-<h2>In case the code stops and you want to continue from the last downloaded paper:</h2>
+<h2>In case the code stops and you want to continue from the last downloaded paper</h2>
 
 <p>Go to the series folder your created earlier and see how many files are there.<br />
 Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
