@@ -27,7 +27,7 @@ By using it you agree that you are aware that reducing or eliminating the waitin
 
 <p>You are good to go.</p>
 
-<h2>In case the code stops at some point and you want to continue from the last downloaded paper:</h2>
+<h2>In case the code stops and you want to continue from the last downloaded paper:</h2>
 
 <p>Go to the series folder your created earlier and see how many files are there.<br />
 Get this number and add it to the <strong>page_number</strong> on line 114 of the code.<br />
