@@ -134,7 +134,7 @@ def main(total=3383):
             end = time.time()
             downloadTime = round(end - start, 2)
             print("{} out of 3383 papers downloaded,      {} sec".format(countPapers(folder), downloadTime))
-            time.sleep(random.randint(0, 2)) # a buffer to not flood the site 
+            time.sleep(random.randint(1, 3)) # a buffer to not flood the site 
         page_number += 20
         print ('\n')
 
