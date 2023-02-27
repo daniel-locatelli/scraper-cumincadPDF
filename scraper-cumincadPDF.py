@@ -3,6 +3,7 @@
 
 '''CumInCAD PDF scraper'''
 # ----------------------------------------------------------------------------------------------------------------------
+from unittest import skip
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -11,23 +12,19 @@ import random
 # ----------------------------------------------------------------------------------------------------------------------
 
 ''' Series available:
-ACADIA, ASCAAD, AVOCAAD, Architectural%20Intelligence, CAAD%20Futures, CAADRIA, CADline, DDSS, EAEA, SIGRADI, SIGraDi
+ACADIA, ASCAAD, AVOCAAD, Architectural%20Intelligence, CAAD%20Futures, CAADRIA, CADline, DDSS, EAEA, SIGRADI, SIGraDi,
 book, cdrf, eCAADe, eCAADeSIGraDi, journal, journal%20paper, other, plCAD, report, thesis%3aMSc, thesis%3aPhD
 
 You can see all the series here:
 http://papers.cumincad.org/cgi-bin/works/BrowseTree?field=series&order=AZ
 '''
 
-series = "eCAADe" 
+series = 'ACADIA'
 folder = series + "/"
+totalNumberPapers = 1693
 baseUrl = 'http://papers.cumincad.org'
 
-
-#this also did't work. The filename changes
-#it has to get the pdf icon path
-#if there is no pdf icon, then enter the paper link and download from there
-
-def getPaperUrls(main_soup):
+def getPaperUrls(main_soup, baseUrl):
     '''find all papers link and return the list of papers'''
     form = main_soup.find('form', attrs={'name': 'main'})
     tables = form.find_all('tr')
@@ -36,10 +33,11 @@ def getPaperUrls(main_soup):
         if table.has_attr('bgcolor'):
             # check if there is a pdf icon
             pdfImg = table.find(attrs = {'src':'/img/pdf.png'})
-            
-            # if there is a pdf icon, then get the Url
             if pdfImg != None:
                 pdfHref = pdfImg.parent.get('href')
+            
+            # if there is a pdf icon, then get the Url
+            if pdfImg != None and pdfHref.split(".")[-1] == 'pdf':
                 workingUrl = baseUrl + pdfHref
 
             # if there isn't, then enter paper page
@@ -70,13 +68,12 @@ def getPaperUrls(main_soup):
             paperUrls.append(workingUrl)
     return paperUrls
 
-def downloadPapers(url):
+def downloadPapers(folder, url):
     '''download papers'''
     # fix file name
     originalFileName = url.split("/")[-1]                   # extract the original file name with extension
     originalFileNameSplit = originalFileName.split('.')     # extract file name only to prevent mistakes with extension '.pdf' like '.pdf_'
     fileName = ''
-
     # check if a working pdf url is available
     if '.pdf' in url:
         # file name
@@ -85,12 +82,12 @@ def downloadPapers(url):
             count += 1
             if count < len(originalFileNameSplit):
                 fileName += segment + '.'
-
         response = requests.get(url)
         print ('Downloading paper {}pdf...'.format(fileName))
         print (url)
         with open(folder + fileName + 'pdf', 'wb') as f:
             f.write(response.content)
+
     else:
         fileName += originalFileName
         response = requests.get(url)
@@ -103,20 +100,19 @@ def downloadPapers(url):
                 paperText += string + '\n'
         with open(folder + fileName + '.txt', 'w', encoding="utf-8") as f:
             f.write(paperText)
-        
 
 def countPapers(folder):
     '''count the number of currently scraped paper'''
     return len(os.listdir(folder))
 
-def main(total=3383):
+def main(total=totalNumberPapers):
     '''wrapper function of scraper'''
-    page_number = 0
-    while page_number <= total:
+    papersAlreadyDownloaded = 0
+    while papersAlreadyDownloaded <= total:
         # access series page, e.g. ACADIA
-        series_page = "http://papers.cumincad.org/cgi-bin/works/BrowseTree?field=series&separator=:&recurse=0&order=AZ&value={}&first={}".format(series, page_number)
+        series_page = "http://papers.cumincad.org/cgi-bin/works/BrowseTree?field=series&separator=:&recurse=0&order=AZ&value={}&first={}".format(series, papersAlreadyDownloaded)
         # page of archive
-        print('Page number: ' + str(page_number))
+        print('Page number: ' + str(papersAlreadyDownloaded))
         print('Checking if page is available...')
         main_response = requests.get(series_page)
         if main_response.status_code != 404:
@@ -126,16 +122,16 @@ def main(total=3383):
             print('Page is not available. Maybe they changed the url format.')
             exit
         # get the papers in the page
-        papersUrl = getPaperUrls(main_soup)
+        papersUrl = getPaperUrls(main_soup, baseUrl)
         # download paper
         for url in papersUrl:
             start = time.time()
-            downloadPapers(url)
+            downloadPapers(folder, url)
             end = time.time()
             downloadTime = round(end - start, 2)
-            print("{} out of 3383 papers downloaded,      {} sec".format(countPapers(folder), downloadTime))
-            time.sleep(random.randint(2, 3)) # a buffer to not flood the site 
-        page_number += 20
+            print("{} out of {} papers downloaded,      {} sec".format(countPapers(folder),total, downloadTime))
+            #time.sleep(random.randint(0, 3)) # a buffer to not flood the site 
+        papersAlreadyDownloaded += 20
         print ('\n')
 
 if __name__ == "__main__":
