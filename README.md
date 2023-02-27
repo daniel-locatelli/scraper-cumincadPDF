@@ -18,7 +18,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 	<li>You also have to create a folder for your series in the same place the python code is saved.
 	<ul>
 		<li>&nbsp; For example, you saved the python file at C:\Users\yourName\Desktop\scraper-cumincadPDF</li>
-		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\<strong>eCAADe</strong></li>
+		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\<strong>ACADIA</strong></li>
 	</ul>
 	</li>
 	<li>Go to cumincad.org and check on the last page of the series what is its total number of papers.
