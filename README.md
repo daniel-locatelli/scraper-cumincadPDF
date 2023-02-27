@@ -14,7 +14,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 <h2>To execute the code</h2>
 
 <ul>
-	<li>Type the series you want to scrape e.g <strong>ACADIA</strong>&nbsp;on line 22.</li>
+	<li>Choose the <strong>series</strong>&nbsp;you want to scrape e.g "ACADIA".</li>
 	<li>You also have to create a folder for your series in the same place the python code is saved.
 	<ul>
 		<li>&nbsp; For example, you saved the python file at C:\Users\yourName\Desktop\scraper-cumincadPDF</li>
@@ -23,14 +23,14 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 	</li>
 	<li>Go to cumincad.org and check on the last page of the series what is its total number of papers.
 	<ul>
-		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>&nbsp;on line 24.</li>
+		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>&nbsp;.</li>
 </ul>
 
 <p>You are good to go.</p>
 
 <h3>In case the code stops and you want to continue from the last downloaded paper</h3>
 <p>Go to the series folder your created earlier and see how many files are there.<br />
-Assign this value to <strong>papersAlreadyDownloaded</strong> on line 110.<br />
+Assign this value to <strong>papersAlreadyDownloaded</strong>.<br />
 &nbsp;</p>
 
 <h3>In case the code doesn't find a pdf for the paper</h3>
