@@ -14,7 +14,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 <h2>To execute the code</h2>
 
 <ul>
-	<li>Type the series you want to scrape e.g <strong>ACADIA</strong>&nbsp;on line 22 of the code.</li>
+	<li>Type the series you want to scrape e.g <strong>ACADIA</strong>&nbsp;on line 22.</li>
 	<li>You also have to create a folder for your series in the same place the python code is saved.
 	<ul>
 		<li>&nbsp; For example, you saved the python file at C:\Users\yourName\Desktop\scraper-cumincadPDF</li>
