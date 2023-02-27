@@ -23,7 +23,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 	</li>
 	<li>Go to cumincad.org and check on the last page of the series what is its total number of papers.
 	<ul>
-		<li>&nbsp; Then assign this value to <b>totalNumberPapers<b/> on line 24 of the code.</li>
+		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>&nbsp;on line 24 of the code.</li>
 </ul>
 
 <p>You are good to go.</p>
