@@ -3,7 +3,6 @@
 
 '''CumInCAD PDF scraper'''
 # ----------------------------------------------------------------------------------------------------------------------
-from unittest import skip
 import requests
 from bs4 import BeautifulSoup
 import os
