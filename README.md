@@ -24,11 +24,10 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 	<li>Go to cumincad.org and check what is the total number of papers in that series.
 	<ul>
 		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>.&nbsp;</li>
-
 <p>You are good to go.</p>
 </ul>
 		
-<h2>In case the code stops and you want to continue from the last downloaded paper</h2>
+<h1>In case the code stops and you want to continue from the last downloaded paper</h1>
 
 <ul>
 <p>Go to the series folder your created earlier and see how many files are there.<br />
@@ -37,6 +36,7 @@ Assign this value to <strong>papersAlreadyDownloaded</strong>.<br />
 </ul>
 
 <h2>In case the code doesn't find a pdf for the paper</h2>
+		
 <ul>
 <p>Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available.</p>
 </ul>
