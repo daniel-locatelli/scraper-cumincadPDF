@@ -25,9 +25,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 	<ul>
 		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>.</li>
 </ul>
-
 <p>You are good to go.</p>
-
 <h3>In case the code stops and you want to continue from the last downloaded paper</h3>
 <p>Go to the series folder your created earlier and see how many files are there.<br />
 Assign this value to <strong>papersAlreadyDownloaded</strong>.<br />
