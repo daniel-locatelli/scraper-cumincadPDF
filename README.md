@@ -2,9 +2,6 @@
 
 <p>Batch download PDFs from CuminCAD for each series e.g ACADIA</p>
 
-<p>This tool was developed for studying purposes. It is not intended to flood cumincad website.<br />
-By using it you agree you are aware that by reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!</p>
-
 <h2>Prerequisite</h2>
 
 <ul>
@@ -31,3 +28,9 @@ Assign this value to <strong>papersAlreadyDownloaded</strong>.</p>
 <h2>In case the code doesn&#39;t find a pdf for the paper</h2>
 
 <p>Sometimes the pdf is missing, or simply there is no pdf at all. In this case, the code generates a .txt file with the information available.</p>
+
+<h2>Disclaimer</h2>
+
+<p>This tool was developed for studying purposes. It is not intended to flood cumincad website.<br />
+By using it you agree you are aware that by reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!
+I do not assume any responsabilities for its use</p>
