@@ -21,7 +21,7 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 		<li>&nbsp; There you have to create another folder C:\Users\yourName\Desktop\scraper-cumincadPDF\<strong>ACADIA</strong></li>
 	</ul>
 	</li>
-	<li>Go to cumincad.org and check on the last page of the series what is its total number of papers.
+	<li>Go to cumincad.org and check what is the total number of papers in that series.
 	<ul>
 		<li>&nbsp; Then assign this value to <strong>totalNumberPapers</strong>&nbsp;.</li>
 </ul>
