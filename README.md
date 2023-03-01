@@ -32,5 +32,5 @@ Assign this value to <strong>papersAlreadyDownloaded</strong>.</p>
 <h2>Disclaimer</h2>
 
 <p>This tool was developed for studying purposes.<br />
-By using it you agree you are aware that by reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!.<br />
+By using it you agree you are aware that by reducing or eliminating the waiting time from the code you can potentially cause flooding requests and damage the website&#39;s performance!<br />
 I do not assume any responsabilities for its use.</p>
