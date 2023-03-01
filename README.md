@@ -28,11 +28,15 @@ By using it you agree you are aware that by reducing or eliminating the waiting 
 <p>You are good to go.</p>
 
 <h2>In case the code stops and you want to continue from the last downloaded paper</h2>
+
 <ul>
 <p>Go to the series folder your created earlier and see how many files are there.<br />
 Assign this value to <strong>papersAlreadyDownloaded</strong>.<br />
 &nbsp;</p>
 </ul>
+
 <h2>In case the code doesn't find a pdf for the paper</h2>
+<ul>
 <p>Sometimes the pdf is missing, or simply there is no pdf at all. In this cases the code generates a .txt file with the information available.</p>
+</ul>
 		
